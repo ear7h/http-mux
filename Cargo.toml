@@ -1,0 +1,23 @@
+[package]
+name = "http-mux"
+version = "0.1.0"
+edition = "2018"
+description = "Go style http multiplexer/router for Rust"
+license-file = "LICENSE_MIT_ACKNOWLEDGE"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+http = "0.2"
+plumb = "0.2.0"
+hyper = { version = "0.14", optional = true }
+# tuple_utils = { git = "https://github.com/ear7h/tuple_utils" }
+
+[dev-dependencies]
+tokio = { version = "1", features = [ "full" ] }
+hyper = { version = "0.14", features = [ "http1", "tcp", "server" ] }
+
+[[example]]
+name = "hello"
+required-features = ["hyper"]
+
