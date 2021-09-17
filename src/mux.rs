@@ -253,7 +253,6 @@ where
         // * the `path_matches` call uses the same underlying function as
         //      `parse`, which results in allocations
         for Handler{route, handler} in self.handlers.iter() {
-            eprintln!("trying: {:?}", route);
             if route.path_matches(&req) {
                 path_matched |= true;
                 if route.method_matches(&req) {

@@ -115,8 +115,7 @@ fn parse_path_tokens<'a>(
 
         match tok {
             Var => {
-                dbg!(s);
-                let (seg, rest) = dbg!(next_segment(s));
+                let (seg, rest) = next_segment(&s);
                 vars.push(seg);
                 if rest.is_empty() {
                     Ok(None)
@@ -125,8 +124,7 @@ fn parse_path_tokens<'a>(
                 }
             },
             Exact(exact) => {
-                dbg!(s);
-                let (seg, rest) = dbg!(next_segment(&s));
+                let (seg, rest) = next_segment(&s);
                 if &seg != &exact {
                     return Err(())
                 } else if rest.is_empty() {
@@ -568,8 +566,7 @@ fn scan<'a>(
 
     match tok {
         Var => {
-            dbg!(s);
-            let (seg, rest) = dbg!(next_segment(s));
+            let (seg, rest) = next_segment(&s);
             *var = Some(seg);
             if rest.is_empty() {
                 Ok(None)
@@ -578,8 +575,7 @@ fn scan<'a>(
             }
         },
         Exact(exact) => {
-            dbg!(s);
-            let (seg, rest) = dbg!(next_segment(&s));
+            let (seg, rest) = next_segment(&s);
             if &seg != &exact {
                 return Err(())
             } else if rest.is_empty() {
